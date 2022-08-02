@@ -1,0 +1,64 @@
+﻿@model NETCore.Models.AjaxExampleModel
+
+<div class="vh-100 d-flex justify-content-center align-items-center flex-column gap-5">
+
+        <div class="col-6 d-flex flex-column align-items-center justify-content-center gap-3">
+
+            <div class="col-12 d-flex flex-column gap-3">
+
+                <div class="input-group">
+                    <div class="input-group-text">
+                        @Html.Label("Value1")
+                    </div>
+                    @Html.TextBox("Value1", null, new {@class="form-control"})
+                </div>
+
+                <div class="input-group">
+                    <div class="input-group-text">
+                        @Html.Label("Value2")
+                    </div>
+                    @Html.TextBox("Value2", null, new {@class="form-control"})
+                </div>
+
+            </div>
+
+            @Html.DropDownList("StudentGender", 
+                    new SelectList(Enum.GetValues(typeof(SelectDoubleInputOptions))),
+                    "Select an Operation",
+                    new { @class = "form-select", @id = "select-option" })
+
+            <button class="col-12 btn btn-primary evaluate">Evaluate</button>
+            <span id="test" class="fs-2"></span>
+        </div>
+
+         <div class="col-6 d-flex flex-column align-items-center justify-content-center gap-3">
+            <div class="col-12 d-flex flex-column gap-3">
+                <div class="input-group">
+                    <div class="input-group-text">
+                        @Html.Label("Value")
+                    </div>
+                    @Html.TextBox("Value", null, new {@class="form-control"})
+                </div>
+            </div>
+            <button class="col-12 btn btn-primary evaluate-negate">Negate</button>
+            <span id="test-neg" class="fs-2"></span>
+        </div>
+
+         <div class="col-6 d-flex flex-column align-items-center justify-content-center gap-3">
+            <div class="col-12 d-flex flex-column gap-3">
+                <div class="input-group">
+                    <div class="input-group-text">
+                        @Html.Label("Array")
+                    </div>
+                    @Html.TextBox("ValueConv", null, new {@class="form-control"})
+                </div>
+            </div>
+            <button class="col-12 btn btn-primary evaluate-conv">Convert</button>
+            <span id="test-conv" class="fs-2"></span>
+        </div>
+
+</div>
+
+@section Scripts{
+    <script type="text/javascript" src="~/js/ajaxexample.js"></script>
+}
